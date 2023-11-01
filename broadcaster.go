@@ -12,12 +12,12 @@ func NewBroadcaster[T any]() *Broadcaster[T] {
 	return &Broadcaster[T]{}
 }
 
-func (b *Broadcaster[T]) Sub(key string) {
-	b.chans.Store(key, make(chan T, 0))
+func (b *Broadcaster[T]) Sub(name string) {
+	b.chans.Store(name, make(chan T, 0))
 }
 
-func (b *Broadcaster[T]) C(key string) <-chan T {
-	v, ok := b.chans.Load(key)
+func (b *Broadcaster[T]) C(name string) <-chan T {
+	v, ok := b.chans.Load(name)
 	if !ok {
 		return nil
 	}

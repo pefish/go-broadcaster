@@ -7,45 +7,45 @@ import (
 )
 
 func main() {
-	broadcaster := go_broadcaster.NewBroadcaster[int]()
+	testBroadcaster := go_broadcaster.NewBroadcaster[int]()
 
 	go func() {
-		key := "1"
-		broadcaster.Sub(key)
+		name := "1"
+		testBroadcaster.Sub(name)
 		for {
 			select {
-			case result := <-broadcaster.C(key):
-				fmt.Printf("<%s> %d\n", key, result)
+			case result := <-testBroadcaster.C(name):
+				fmt.Printf("<%s> %d\n", name, result)
 			}
 		}
 	}()
 
 	go func() {
-		key := "2"
-		broadcaster.Sub(key)
+		name := "2"
+		testBroadcaster.Sub(name)
 		for {
 			select {
-			case result := <-broadcaster.C(key):
-				fmt.Printf("<%s> %d\n", key, result)
+			case result := <-testBroadcaster.C(name):
+				fmt.Printf("<%s> %d\n", name, result)
 			}
 		}
 	}()
 
 	go func() {
-		key := "3"
-		broadcaster.Sub(key)
+		name := "3"
+		testBroadcaster.Sub(name)
 		for {
 			select {
-			case result := <-broadcaster.C(key):
-				fmt.Printf("<%s> %d\n", key, result)
+			case result := <-testBroadcaster.C(name):
+				fmt.Printf("<%s> %d\n", name, result)
 			}
 		}
 	}()
 
 	time.Sleep(2 * time.Second)
 
-	broadcaster.Pub(10)
-	broadcaster.Pub(11)
+	testBroadcaster.Pub(10)
+	testBroadcaster.Pub(11)
 
 	time.Sleep(5 * time.Second)
 }
