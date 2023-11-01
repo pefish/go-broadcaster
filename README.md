@@ -1,6 +1,6 @@
-# 
+# go-broadcaster
 
-[![view examples](https://img.shields.io/badge/learn%20by-examples-0C8EC5.svg?style=for-the-badge&logo=go)](https://github.com/pefish/)
+[![view examples](https://img.shields.io/badge/learn%20by-examples-0C8EC5.svg?style=for-the-badge&logo=go)](https://github.com/pefish/go-broadcaster)
 
 
 
@@ -12,7 +12,7 @@
 
 ## Document
 
-[doc](https://godoc.org/github.com/pefish/)
+[doc](https://godoc.org/github.com/pefish/go-broadcaster)
 
 ## Security Vulnerabilities
 
